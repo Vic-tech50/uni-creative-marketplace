@@ -9,6 +9,15 @@ import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/auth-layout';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function Register() {
     return (
@@ -56,6 +65,24 @@ export default function Register() {
                                     placeholder="email@example.com"
                                 />
                                 <InputError message={errors.email} />
+                            </div>
+
+                             <div className="grid gap-2">
+                                <Label htmlFor="email">Select Role</Label>
+                               <Select name='role'>
+      <SelectTrigger className="w-full">
+        <SelectValue placeholder="Select a Role" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel>Role</SelectLabel>
+          <SelectItem value="0">Student</SelectItem>
+          <SelectItem value="2">Photographer/Videographer</SelectItem>
+          
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+                                <InputError message={errors.role} />
                             </div>
 
                             <div className="grid gap-2">
