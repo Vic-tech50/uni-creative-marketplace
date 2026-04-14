@@ -5,7 +5,10 @@ import { createRoot } from 'react-dom/client';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import '../css/app.css';
 import { initializeTheme } from '@/hooks/use-appearance';
-
+// import {route} from 'ziggy-js'
+// import { Ziggy } from '@/ziggy'; // the generated config file
+import { Ziggy } from '@/ziggy';
+// import { route } from 'ziggy-js';
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
@@ -17,6 +20,7 @@ createInertiaApp({
         ),
     setup({ el, App, props }) {
         const root = createRoot(el);
+        globalThis.Ziggy = Ziggy;
 
         root.render(
             <StrictMode>
